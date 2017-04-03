@@ -1,5 +1,4 @@
 const Twit = require("twit");
-const ToCSV = require("array-to-csv");
 const FS = require("fs");
 const config = require('./config');
 
@@ -19,15 +18,15 @@ function getAllPyragues() {
     .then(data => {
       nextCursor = data.nextCursor;
       pyragues = pyragues.concat(data.pyragues);
-      console.log("Se obtuvieron nuevos pyragues");
       return getAllPyragues();
     })
     .catch(error => console.error(`Error: ${error}`));
 }
 
 getAllPyragues().then(() => {
-  console.log(`Final pyragues: ${pyragues}`);
-  FS.writeFile("pyragues.csv", ToCSV(pyragues.map(p => p.id)), err => {
+  let idsMap = pyragues.map(p => p.id);
+  console.log(`ids: ${idsMap}`);
+  FS.writeFile("pyragues.csv", idsMap.join('/n'), err => {
     if (err) {
       console.error(`Error al generar CSV: ${err}`);
       return;
