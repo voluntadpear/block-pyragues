@@ -63,7 +63,7 @@ function getPyragues(cursor) {
             return u.profile_image_url == "http://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png" &&
               u.followers_count < 100 &&
               u.friends_count < 150 &&
-              fecha > new Date(2017, 4, 1);
+              fecha > new Date(2017, 3, 1);
           }
         );
         let nextCursor = data.next_cursor_str;
