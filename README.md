@@ -2,7 +2,7 @@
 
 Pequeño script que busca followers a la cuenta de twitter @Horacio_Cartes con menos de 100 followers y sin foto de perfil.
 
-# Instalación
+## Instalación
 1. Clonar repositorio
 2. Ejecutar `npm install`
 3. Crear una aplicación de twitter: https://apps.twitter.com/
